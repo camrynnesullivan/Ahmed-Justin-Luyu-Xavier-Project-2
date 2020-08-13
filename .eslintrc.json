@@ -21,7 +21,6 @@
     "no-empty-function": "error",
     "no-func-assign": "error",
     "no-unreachable": "error",
-    "prettier/prettier": "error",
     "quotes": ["error", "double"],
     "yoda": "error"
   }
