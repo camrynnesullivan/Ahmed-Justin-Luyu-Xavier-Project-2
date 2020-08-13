@@ -21,5 +21,12 @@ module.exports = function (sequelize, DataTypes) {
     },
     reviewCount: DataTypes.INTEGER,
   });
+  Restaurant.associate = function (models) {
+    // Associating restaurants with Posts
+    // When a restaurant is deleted, also delete any associated Posts
+    Restaurant.hasMany(models.Post, {
+      onDelete: "cascade",
+    });
+  };
   return Restaurant;
 };
