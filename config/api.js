@@ -1,5 +1,5 @@
 "use strict";
-const env = require("dotenv").config();
+require("dotenv").config();
 const yelp = require("yelp-fusion");
 const client = yelp.client(process.env.API_KEY);
 let restaurants;
@@ -9,8 +9,8 @@ client
     location: "new york, ny",
   })
   .then((response) => {
-    restaurants = response.jsonBody.businesses.map(function (business) {
-      var obj = {
+    restaurants = response.jsonBody.businesses.map((business) => {
+      const obj = {
         name: business.name,
         url: business.url,
         rating: business.rating,
