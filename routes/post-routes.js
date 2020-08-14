@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-// Requiring our models and passport as we've configured it
-=======
->>>>>>> 1f9bb95a17360a46817e33a231a6075144605a64
 var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function(app) {
-<<<<<<< HEAD
+
   app.get("/post", function(req, res) {
     console.log("get post:");
     res.json({ message: "get post" });
@@ -25,7 +21,7 @@ module.exports = function(app) {
   app.delete("/post/:id", function(req, res) {
     console.log("delete posts:" + req.params.id);
     res.json({ message: `delete posts ${req.params.id}` });
-=======
+
   // GET route for getting all of the posts
   app.get("/api/post:id", function(req, res) {
     db.Post.findAll({
@@ -73,11 +69,9 @@ module.exports = function(app) {
     }).then(function(dbPost) {
       res.json(dbPost);
     });
-<<<<<<< HEAD
+
     // console.log("delete posts:" + req.params.id);
     // res.json({ message: `delete posts ${req.params.id}` });
->>>>>>> 1f9bb95a17360a46817e33a231a6075144605a64
-=======
->>>>>>> 38cc4d10a4ccc613435ca02e01145ba6732ad890
+
   });
 };

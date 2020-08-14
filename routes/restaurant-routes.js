@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-// Requiring our models and passport as we've configured it
-=======
->>>>>>> 1f9bb95a17360a46817e33a231a6075144605a64
 var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function(app) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   app.get("/restaurant", function(req, res) {
     console.log("get restaurants:");
     res.json({ message: "get restaurants" });
@@ -27,22 +20,14 @@ module.exports = function(app) {
   app.delete("/restaurant/:id", function(req, res) {
     console.log("delete restaurants:" + req.params.id);
     res.json({ message: `delete restaurants ${req.params.id}` });
-=======
+
   // Find all the restaurants and return them to the user with res.json
   app.get("/restaurant", function(req, res) {
     db.Post.findAll({}).then(function(dbPost) {
-=======
-  // // GET route for getting all of the p
-  // app.get("/api/restaurant:id", function(req, res) {
-  //   db.Post.findAll({
-  //     where: { id: req.body.id },
-  //   }).then(function(dbPost) {
-  //     res.json(dbPost);
-  //   });
-  // });
 
-=======
->>>>>>> 38cc4d10a4ccc613435ca02e01145ba6732ad890
+  
+
+
   // // GET route for retriveing a specific restaurant
   app.get("/restaurant/:id", function(req, res) {
     db.Restaurant.findOne({
@@ -50,7 +35,7 @@ module.exports = function(app) {
         yelpId: req.params.id,
       },
     }).then(function(dbPost) {
->>>>>>> b1b509d0822d1f349011bc3ec469149200b6d730
+
       res.json(dbPost);
     });
   });
@@ -98,16 +83,6 @@ module.exports = function(app) {
     }).then(function(dbPost) {
       res.json(dbPost);
     });
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // console.log("delete restaurants:" + req.params.id);
-    // res.json({ message: `delete restaurants ${req.params.id}` });
->>>>>>> 1f9bb95a17360a46817e33a231a6075144605a64
-=======
-    // console.log("delete posts:" + req.params.id);
-    // res.json({ message: `delete posts ${req.params.id}` });
->>>>>>> b1b509d0822d1f349011bc3ec469149200b6d730
-=======
->>>>>>> 38cc4d10a4ccc613435ca02e01145ba6732ad890
+
   });
 };
