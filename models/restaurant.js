@@ -1,31 +1,43 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const Restaurant = sequelize.define("Restaurant", {
+    key: {
+      type: DataTypes.STRING,
+      unique: true,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
     },
     url: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     rating: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
-    address: {
-      type: DataTypes.STRING
+    address1: {
+      type: DataTypes.STRING,
+    },
+    address2: {
+      type: DataTypes.STRING,
     },
     phone: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
-    reviewCount: DataTypes.INTEGER
+    image: {
+      type: DataTypes.STRING,
+    },
+    reviewCount: {
+      type: DataTypes.INTEGER,
+      default: 0,
+    },
   });
-  Restaurant.associate = function(models) {
+  Restaurant.associate = function (models) {
     // Associating restaurants with Posts
     // When a restaurant is deleted, also delete any associated Posts
     Restaurant.hasMany(models.Post, {
-      onDelete: "cascade"
+      onDelete: "cascade",
     });
   };
   return Restaurant;
