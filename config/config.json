@@ -1,21 +1,26 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "abundance26$",
     "database": "passport_demo",
+=======
+    "password": "",
+    "database": "vegan_db",
+>>>>>>> 1276f9e77342c11798d6cef2aa858916b71fb0a5
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "123456789",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": null,
+    "password": "123456789",
     "database": "database_production",
     "host": "127.0.0.1",
     "use_env_variable": "JAWSDB_URL",
