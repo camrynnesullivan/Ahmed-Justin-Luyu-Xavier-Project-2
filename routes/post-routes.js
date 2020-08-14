@@ -34,20 +34,6 @@ module.exports = function(app) {
       res.json(dbPost);
     });
   });
-
-  // // GET route for retriveing a single post
-  // app.get("/post", function(req, res) {
-  //   db.Post.findOne({
-  //     where: {
-  //       id: req.params.id,
-  //     },
-  //   }).then(function(dbPost) {
-  //     res.json(dbPost);
-  //   });
-  //   // console.log("get post:");
-  //   // res.json({ message: "get post" });
-  // });
-
   // POST route for saving a new post
   app.post("/newReview", function(req, res) {
     db.Post.create({
@@ -59,8 +45,6 @@ module.exports = function(app) {
       console.log("something");
       res.json(dbPost);
     });
-    // console.log("posting a post:");
-    // res.json({ message: "posting a post" });
   });
 
   // PUT route for updating posts
@@ -78,8 +62,6 @@ module.exports = function(app) {
     ).then(function(dbPost) {
       res.json(dbPost);
     });
-    // console.log("put post:" + req.params.id);
-    // res.json({ message: `put post ${req.params.id}` });
   });
 
   // DELETE route for deleting posts
@@ -91,8 +73,11 @@ module.exports = function(app) {
     }).then(function(dbPost) {
       res.json(dbPost);
     });
+<<<<<<< HEAD
     // console.log("delete posts:" + req.params.id);
     // res.json({ message: `delete posts ${req.params.id}` });
 >>>>>>> 1f9bb95a17360a46817e33a231a6075144605a64
+=======
+>>>>>>> 38cc4d10a4ccc613435ca02e01145ba6732ad890
   });
 };

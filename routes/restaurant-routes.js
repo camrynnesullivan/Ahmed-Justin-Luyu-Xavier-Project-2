@@ -8,6 +8,7 @@ var passport = require("../config/passport");
 module.exports = function(app) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   app.get("/restaurant", function(req, res) {
     console.log("get restaurants:");
     res.json({ message: "get restaurants" });
@@ -40,6 +41,8 @@ module.exports = function(app) {
   //   });
   // });
 
+=======
+>>>>>>> 38cc4d10a4ccc613435ca02e01145ba6732ad890
   // // GET route for retriveing a specific restaurant
   app.get("/restaurant/:id", function(req, res) {
     db.Restaurant.findOne({
@@ -50,11 +53,9 @@ module.exports = function(app) {
 >>>>>>> b1b509d0822d1f349011bc3ec469149200b6d730
       res.json(dbPost);
     });
-    // console.log("get post:");
-    // res.json({ message: "get post" });
   });
 
-  // POST route for saving a new post
+  // POST route for saving a new restaurant
   app.post("/newRestaurant", function(req, res) {
     db.Restaurant.create({
       yelpId: req.body.yelpId,
@@ -70,11 +71,9 @@ module.exports = function(app) {
       console.log("something");
       res.json(dbPost);
     });
-    // console.log("posting a post:");
-    // res.json({ message: "posting a post" });
   });
 
-  // PUT route for updating posts
+  // PUT route for updating restaurant
   app.put("/restaurant/update", function(req, res) {
     db.Restaurant.update(
       {
@@ -88,11 +87,9 @@ module.exports = function(app) {
     ).then(function(dbPost) {
       res.json(dbPost);
     });
-    // console.log("put post:" + req.params.id);
-    // res.json({ message: `put post ${req.params.id}` });
   });
 
-  // DELETE route for deleting posts
+  // DELETE route for deleting restaurant
   app.delete("/delete/:id", function(req, res) {
     db.Restaurant.destroy({
       where: {
@@ -102,6 +99,7 @@ module.exports = function(app) {
       res.json(dbPost);
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
     // console.log("delete restaurants:" + req.params.id);
     // res.json({ message: `delete restaurants ${req.params.id}` });
 >>>>>>> 1f9bb95a17360a46817e33a231a6075144605a64
@@ -109,5 +107,7 @@ module.exports = function(app) {
     // console.log("delete posts:" + req.params.id);
     // res.json({ message: `delete posts ${req.params.id}` });
 >>>>>>> b1b509d0822d1f349011bc3ec469149200b6d730
+=======
+>>>>>>> 38cc4d10a4ccc613435ca02e01145ba6732ad890
   });
 };
