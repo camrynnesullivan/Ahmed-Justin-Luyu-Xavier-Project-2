@@ -2,35 +2,76 @@ var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function(app) {
-  // Find all the restaurants and return them to the user with res.json
-  app.get("/restaurant", function(req, res) {
-    db.Post.findAll({}).then(function(dbPost) {
-      res.json(dbPost);
-    });
-    // console.log("get restaurants:");
-    // res.json({ message: "get restaurants" });
-  });
-  // Create one restaurant with the re.params.id and return them to the user with res.json
-  app.post("/restaurant", function(req, res) {
-    console.log("post restaurants:");
-    db.Post.create(req.body).then(function(dbPost) {
-      res.json(dbPost);
-    });
-    // res.json({ message: "post restaurants" });
-  });
-  app.put("/restaurant/:id", function(req, res) {
-    // console.log("put restaurants:" + req.params.id);
-    // res.json({ message: `put restaurants ${req.params.id}` });
-  });
-  app.delete("/restaurant/:id", function(req, res) {
-    db.Post.destroy({
+  // // GET route for getting all of the p
+  // app.get("/api/restaurant:id", function(req, res) {
+  //   db.Post.findAll({
+  //     where: { id: req.body.id },
+  //   }).then(function(dbPost) {
+  //     res.json(dbPost);
+  //   });
+  // });
+
+  // // GET route for retriveing a specific restaurant
+  app.get("/restaurant/:id", function(req, res) {
+    db.Restaurant.findOne({
       where: {
-        id: req.params.id,
+        yelpId: req.params.id,
       },
     }).then(function(dbPost) {
       res.json(dbPost);
     });
-    // console.log("delete restaurants:" + req.params.id);
-    // res.json({ message: `delete restaurants ${req.params.id}` });
+    // console.log("get post:");
+    // res.json({ message: "get post" });
+  });
+
+  // POST route for saving a new post
+  app.post("/newRestaurant", function(req, res) {
+    db.Restaurant.create({
+      yelpId: req.body.yelpId,
+      name: req.body.name,
+      url: req.body.url,
+      rating: req.body.rating,
+      address1: req.body.address1,
+      address2: req.body.address2,
+      phone: req.body.phone,
+      image: req.body.image,
+      reviewCount: req.body.reviewCount,
+    }).then(function(dbPost) {
+      console.log("something");
+      res.json(dbPost);
+    });
+    // console.log("posting a post:");
+    // res.json({ message: "posting a post" });
+  });
+
+  // PUT route for updating posts
+  app.put("/restaurant/update", function(req, res) {
+    db.Restaurant.update(
+      {
+        reviewCount: req.body.reviewCount,
+      },
+      {
+        where: {
+          yelpId: req.body.yelpId,
+        },
+      }
+    ).then(function(dbPost) {
+      res.json(dbPost);
+    });
+    // console.log("put post:" + req.params.id);
+    // res.json({ message: `put post ${req.params.id}` });
+  });
+
+  // DELETE route for deleting posts
+  app.delete("/delete/:id", function(req, res) {
+    db.Restaurant.destroy({
+      where: {
+        yelpId: req.params.id,
+      },
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+    // console.log("delete posts:" + req.params.id);
+    // res.json({ message: `delete posts ${req.params.id}` });
   });
 };
