@@ -2,3 +2,29 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+#inputform {
+  max-width:900px !important;
+  width: 100% !important;
+  margin: 0px auto 0 auto;
+  border-radius: 25px;
+  font-size: 15px;
+}
+
+#inputName{
+    max-width: 650px !important;
+  width: 100% !important;
+  margin: 0px auto 0 auto;
+  border-radius: 25px;
+  font-size: 15px;
+}
+
+.inputform {
+    max-width: 300px !important;
+    width: 100% !important;
+}
+
+.subtle-text {
+    color: #999;
+    font-weight: normal;
+}
