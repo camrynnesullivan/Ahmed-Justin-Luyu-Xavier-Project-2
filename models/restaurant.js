@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   const Restaurant = sequelize.define("Restaurant", {
-    key: {
+    yelpId: {
       type: DataTypes.STRING,
       unique: true,
     },

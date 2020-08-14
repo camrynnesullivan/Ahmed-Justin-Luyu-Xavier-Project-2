@@ -3,34 +3,36 @@ var passport = require("../config/passport");
 
 module.exports = function(app) {
   // GET route for getting all of the posts
-  app.get("/api/post", function(req, res) {
-    var query = {};
-    if (req.query.author_id) {
-      query.PostId = req.query.post_id;
-    }
+  app.get("/api/post:id", function(req, res) {
     db.Post.findAll({
-      where: query,
+      where: { id: req.body.id },
     }).then(function(dbPost) {
       res.json(dbPost);
     });
   });
 
-  // GET route for retriveing a single post
-  app.get("/post", function(req, res) {
-    db.Post.findOne({
-      where: {
-        id: req.params.id,
-      },
-    }).then(function(dbPost) {
-      res.json(dbPost);
-    });
-    // console.log("get post:");
-    // res.json({ message: "get post" });
-  });
+  // // GET route for retriveing a single post
+  // app.get("/post", function(req, res) {
+  //   db.Post.findOne({
+  //     where: {
+  //       id: req.params.id,
+  //     },
+  //   }).then(function(dbPost) {
+  //     res.json(dbPost);
+  //   });
+  //   // console.log("get post:");
+  //   // res.json({ message: "get post" });
+  // });
 
   // POST route for saving a new post
-  app.post("/post", function(req, res) {
-    db.Post.create(req.body).then(function(dbPost) {
+  app.post("/newReview", function(req, res) {
+    db.Post.create({
+      title: req.body.title,
+      body: req.body.body,
+      UserId: req.body.userId,
+      RestaurantId: req.body.restaurantId,
+    }).then(function(dbPost) {
+      console.log("something");
       res.json(dbPost);
     });
     // console.log("posting a post:");
@@ -38,12 +40,18 @@ module.exports = function(app) {
   });
 
   // PUT route for updating posts
-  app.put("/post/:id", function(req, res) {
-    db.Post.update({
-      where: {
-        id: id.params.id,
+  app.put("/review/update", function(req, res) {
+    db.Post.update(
+      {
+        title: req.body.title,
+        body: req.body.body,
       },
-    }).then(function(dbPost) {
+      {
+        where: {
+          id: req.body.id,
+        },
+      }
+    ).then(function(dbPost) {
       res.json(dbPost);
     });
     // console.log("put post:" + req.params.id);
@@ -51,10 +59,10 @@ module.exports = function(app) {
   });
 
   // DELETE route for deleting posts
-  app.delete("/post/:id", function(req, res) {
+  app.delete("/delete/:id", function(req, res) {
     db.Post.destroy({
       where: {
-        id: id.params.id,
+        id: req.params.id,
       },
     }).then(function(dbPost) {
       res.json(dbPost);
