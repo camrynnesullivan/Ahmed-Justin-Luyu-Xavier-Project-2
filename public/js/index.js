@@ -8,6 +8,7 @@ $(document).ready(() => {
             return $("a#logoutlink").style.display = "none";
         }
     });
-    
-
+    $("#logoutBtn").on("click", () => {
+        $.get("/logout");
+    })
 });
