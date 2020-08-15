@@ -2,11 +2,7 @@ require("dotenv");
 module.exports = {
   development: {
     username: "root",
-<<<<<<< HEAD
-    password: "Mysqlalex@1z.",
-=======
-    password: "xej62920",
->>>>>>> master
+    password: process.env.DB_Pass,
     database: "vegan_db",
     host: "127.0.0.1",
     dialect: "mysql",
