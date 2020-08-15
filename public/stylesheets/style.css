@@ -3,6 +3,11 @@ form.login {
   margin-top: 150px;
 }
 
+textarea{
+  width: 100%;
+  columns: 76;
+}
+
 #inputform {
   max-width:900px !important;
   width: 100% !important;
@@ -27,4 +32,71 @@ form.login {
 .subtle-text {
     color: #999;
     font-weight: normal;
+}
+
+/* Restaurant Page CSS */
+
+.logo-img{
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.restaurant-img{
+  width: 250px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  display: block; 
+}
+
+.restaurant-title{
+  padding-right: 10px;
+}
+
+.save-review-btns{
+  position: absolute;
+  right: 20px;
+}
+
+/* Breakpoints */
+@media (min-width: 576px){
+  .logo-img{
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .restaurant-img{
+    width: 500px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    display: block; 
+  }
+
+  .save-review-btns{
+    position: absolute;
+    right: 50px;
+  }
+
+}
+@media (min-width: 768px){
+  .save-review-btns{
+    position: absolute;
+    right: 60px;
+  }
+}
+
+@media (min-width: 992px){
+  .save-review-btns{
+    position: absolute;
+    right: 160px;
+  }
 }
