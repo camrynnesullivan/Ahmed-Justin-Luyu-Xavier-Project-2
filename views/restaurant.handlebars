@@ -13,11 +13,11 @@
     </div>
 </div>
 
-
+{{#each restaurant}}
 <div class="container">
     <div class="row">
         <div class="col">
-            <img src="{{image}}" alt="Restaurant-Image" class="restaurant-img" />
+            <img src="{{image_url}}" alt="Restaurant-Image" class="restaurant-img" />
         </div>
     </div>
 
@@ -26,7 +26,7 @@
         <div class="col">
             <h1 id="restaurant-title" class="restaurant-title">{{name}}</h1>
             <p>
-                {{address}}
+                {{location.display_address}}
                 <br>
                 {{phone}}
                 <br>
@@ -84,3 +84,4 @@
     </section>
 
 </div>
+{{/each}}
