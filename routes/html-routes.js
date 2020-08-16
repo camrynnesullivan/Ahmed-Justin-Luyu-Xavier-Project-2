@@ -85,9 +85,6 @@ module.exports = function(app) {
       console.log("redirecting to login");
       res.redirect("/login");
     }
-    else{
-      res.render("login");
-    }
   });
 
   // app.post("/restaurant/:key", (req, res) => {
