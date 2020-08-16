@@ -18,35 +18,29 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <img src="https://image.shutterstock.com/image-vector/no-image-available-icon-ui-260nw-1458092489.jpg"
-                alt="Restaurant Image Goes Here" class="restaurant-img"
-                style="width: 250px;height: 250px;margin-left: auto;margin-right: auto;display: block; margin-bottom: 20px;" />
+            <img src={{image}} alt="Restaurant Image" class="restaurant-img" />
         </div>
     </div>
 
     <!-- Restaurant Info, Rating, and Review -->
     <div class="row">
         <div class="col">
-            <h1 id="restaurant-title" class="restaurant-title">Restaurant Title</h1>
+            <h1 id="restaurant-title" class="restaurant-title">{{name}}</h1>
+            <p>
+                {{address1}}
+                <br>
+                {{address2}}
+                <br>
+                {{phone}}
+                <br>
+                {{url}}
+                <br>
+                {{rating}}
+            </p>
         </div>
         <div class="save-review-btns">
             <button id="save-btn" class="btn-outline-secondary btn rounded">Save</button>
             <button id="review-btn" class="btn-outline-secondary btn rounded">Review</button>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <h2>Description</h2>
-            <p id="restaurant-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-                itaque, necessitatibus maxime ea quidem, nisi dolorum quo enim,
-                porro architecto delectus. Nesciunt maxime ratione debitis
-                consectetur odio obcaecati veniam laborum! Lorem ipsum dolor sit
-                amet consectetur adipisicing elit. Officiis, vel ea repellat, ipsum
-                reprehenderit enim dignissimos magnam quaerat facilis commodi eaque,
-                totam quas quibusdam dolores fugiat quasi in fuga! Enim?
-            </p>
         </div>
     </div>
 
@@ -56,18 +50,17 @@
                 <h2>Reviews</h2>
                 <div class="card" style="margin-bottom: 20px; padding: 10px;">
                     <div class="col user-name">
-                        <h4 id="user-name">User Name</h4>
+                        <h4 id="user-name">{{Email}}</h4>
                     </div>
                     <div class="col">
-                        <textarea name="user-review" id="user-input" cols="46" rows="5"
-                            style="display: block;margin-right: auto;margin-left: auto; margin-bottom: 20px;">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint delectus debitis amet quo, veritatis praesentium facilis. Voluptate voluptatum blanditiis consectetur nobis temporibus? Totam minus doloribus tempora atque perspiciatis ducimus nihil!
-              </textarea>
+                        <textarea name="user-review" id="user-input" cols="46" rows="5">
+
+                        </textarea>
                     </div>
 
                     <div>
-                        <button id="submit-btn" class="btn-outline-secondary btn rounded"
-                            style="float: right;">Submit</button>
+                        <button id="submit-btn" class="btn-outline-secondary btn rounded" style="float: right;">Submit
+                        </button>
                     </div>
                 </div>
             </div>
@@ -84,12 +77,9 @@
             <div class="col user-name">
                 <h3 id="others-name"></h3>
             </div>
-            <div id="others-input">
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem reiciendis minus doloribus et ut
-                    repellat
-                    quos! Officiis quibusdam dolorum quis blanditiis? Minus libero voluptates, repellat eum facere
-                    nobis qui et?
+            <div>
+                <p id="others-input">
+
                 </p>
             </div>
         </div>

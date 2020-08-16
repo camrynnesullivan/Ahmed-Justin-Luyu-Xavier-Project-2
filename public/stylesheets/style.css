@@ -16,20 +16,24 @@ form.login {
   margin-top: 150px;
 }
 
-textarea{
+textarea {
   width: 100%;
   columns: 76;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
 }
 
 #inputform {
-  max-width:900px !important;
+  max-width: 900px !important;
   width: 100% !important;
   margin: 0px auto 0 auto;
   border-radius: 25px;
   font-size: 15px;
 }
 
-#inputName{
+#inputName {
   max-width: 650px !important;
   width: 100% !important;
   margin: 0px auto 0 auto;
@@ -38,18 +42,18 @@ textarea{
 }
 
 .inputform {
-    max-width: 300px !important;
-    width: 100% !important;
+  max-width: 300px !important;
+  width: 100% !important;
 }
 
 .subtle-text {
-    color: #999;
-    font-weight: normal;
+  color: #999;
+  font-weight: normal;
 }
 
 /* Restaurant Page CSS */
 
-.logo-img{
+.logo-img {
   width: 100px;
   height: 100px;
   margin: auto;
@@ -57,27 +61,27 @@ textarea{
   display: block;
 }
 
-.restaurant-img{
+.restaurant-img {
   width: 250px;
   height: 250px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  display: block; 
+  display: block;
 }
 
-.restaurant-title{
+.restaurant-title {
   padding-right: 10px;
 }
 
-.save-review-btns{
+.save-review-btns {
   position: absolute;
   right: 20px;
 }
 
 /* Breakpoints */
-@media (min-width: 576px){
-  .logo-img{
+@media (min-width: 576px) {
+  .logo-img {
     width: 150px;
     height: 150px;
     margin: auto;
@@ -85,30 +89,29 @@ textarea{
     display: block;
   }
 
-  .restaurant-img{
+  .restaurant-img {
     width: 500px;
     height: 500px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-    display: block; 
+    display: block;
   }
 
-  .save-review-btns{
+  .save-review-btns {
     position: absolute;
     right: 50px;
   }
-
 }
-@media (min-width: 768px){
-  .save-review-btns{
+@media (min-width: 768px) {
+  .save-review-btns {
     position: absolute;
     right: 60px;
   }
 }
 
-@media (min-width: 992px){
-  .save-review-btns{
+@media (min-width: 992px) {
+  .save-review-btns {
     position: absolute;
     right: 160px;
   }
