@@ -3,6 +3,7 @@ const path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const restaurant = require("../models/restaurant");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
@@ -39,8 +40,11 @@ module.exports = function(app) {
     res.render("login", { background: "class='imgbackground'" });
   });
 
-  app.get("/restaurant", (req, res) => {
-    res.render("/restaurant");
+  app.get("/restuarant", (req, res) => {
+    if(req.user){
+      res.render("restaurant")
+    }
+    res.render("login");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
