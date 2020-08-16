@@ -40,12 +40,18 @@ module.exports = function(app) {
     res.render("login", { background: "class='imgbackground'" });
   });
 
-  app.get("/restuarant", (req, res) => {
-    if(req.user){
-      res.render("restaurant")
+  app.get("/restaurant", (req, res) => {
+    if (req.user) {
+      res.redirect("/restaurant");
     }
-    res.render("login");
+    res.redirect("login");
   });
+  // app.post("/restaurant/:key", (req, res) => {
+  //   // if (req.user) {
+  //   //   res.render("restaurant");
+  //   // }
+  //   res.redirect("restaurant");
+  // });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page

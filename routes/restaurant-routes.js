@@ -3,7 +3,7 @@ var passport = require("../config/passport");
 
 module.exports = function(app) {
   // // GET route for retriveing a specific restaurant
-  app.get("/restaurant/:id", function(req, res) {
+  app.get("/api/restaurant/:id", function(req, res) {
     db.Restaurant.findOne({
       where: {
         yelpId: req.params.id,
