@@ -11,4 +11,20 @@ $(document).ready(() => {
     $("#logoutBtn").on("click", () => {
         $.get("/logout");
     })
+
+    const inputForm = $("form#inputform");
+
+    inputForm.on("submit", (event) => {
+        event.preventDefault();
+        const userInput = $("input").val().trim();
+        console.log(userInput);
+        getrest(userInput);
+    });
+
+    function getrest(name) {
+        console.log("outside of the restaurant")
+        
+        window.location.replace ("restuarant");
+        console.log(name);
+    }
 });
