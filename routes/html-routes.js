@@ -53,30 +53,24 @@ module.exports = function(app) {
           location: "new york, ny",
         })
         .then((response) => {
-          restaurants = response.jsonBody.businesses.map((business) => {
-            let obj = {};
-            if (business.id === currentKey) {
-              obj = {
-                key: business.id,
-                name: business.name,
-                url: business.url,
-                rating: business.rating,
-                address: business.location.display_address,
-                phone: business.display_phone,
-                image: business.image_url,
-              };
-              return obj;
+          const restaurants = response.jsonBody.businesses.filter(
+            (business) => {
+              if (business.id === currentKey) {
+                return {
+                  business,
+                };
+              }
             }
-          });
+          );
+          console.log(
+            restaurants[0].location.display_address[0] +
+              restaurants[0].location.display_address[1]
+          );
           var hbsObject = {
             restaurant: restaurants,
           };
-          console.log(hbsObject);
-          res.render("restaurant", {
-            image: "sadfasdv",
-            name: "Yehuda",
-            address: "hkhkbjhbjjlkn",
-          });
+          // console.log(hbsObject);
+          res.render("restaurant", hbsObject);
         })
         .catch((e) => {
           console.log(e);
@@ -121,7 +115,6 @@ module.exports = function(app) {
           restaurant: restaurants,
         };
         res.render("main", hbsObject);
-        console.log(restaurants);
       })
       .catch((e) => {
         console.log(e);
