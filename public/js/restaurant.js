@@ -15,4 +15,27 @@ $(document).ready(() => {
   // Restaurant references
   const restaurantTitle = $("#restaurant-title");
   const restautantDescription = $("#restaurant-description");
+
+  // Button click functions
+
+  // Back button 
+  backBtn.on("click", function(){
+    console.log("button works");
+  })
+
+  searchBtn.on("click", function(){
+    console.log("button works");
+  })
+
+  saveBtn.on("click", function(){
+    console.log("button works");
+  })
+
+  reviewBtn.on("click", function(){
+    console.log("button works");
+  })
+
+  submitBtn.on("click", function(){
+    console.log("button works");
+  })
 });

@@ -44,7 +44,9 @@ module.exports = function(app) {
     if(req.user){
       res.render("restaurant")
     }
-    res.render("login");
+    else{
+      res.render("login");
+    }
   });
 
   // Here we've add our isAuthenticated middleware to this route.
