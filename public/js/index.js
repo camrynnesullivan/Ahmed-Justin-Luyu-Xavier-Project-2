@@ -13,6 +13,6 @@ $(document).ready(() => {
   });
   $(".checkout").on("click", (e) => {
     let key = e.target.getAttribute("data");
-    $.get("/restaurant");
+    location.href = "/restaurant/" + key;
   });
 });
