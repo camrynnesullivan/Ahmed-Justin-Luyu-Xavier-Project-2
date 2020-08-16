@@ -9,7 +9,7 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the main page
     if (req.user) {
-      res.redirect("/main");
+      res.render("/main");
     }
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
     res.render("signup", { background: "class='imgbackground'" });
@@ -18,7 +18,7 @@ module.exports = function(app) {
   app.get("/signup", (req, res) => {
     // If the user already has an account send them to the main page
     if (req.user) {
-      res.redirect("/main");
+      res.render("/main");
     }
     // res.sendFile(path.join(__dirname, "../public/login.html"));
     res.render("signup", { background: "class='imgbackground'" });
@@ -34,7 +34,7 @@ module.exports = function(app) {
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the main page
     if (req.user) {
-      res.redirect("/main");
+      res.render("/main");
     }
     // res.sendFile(path.join(__dirname, "../public/login.html"));
     res.render("login", { background: "class='imgbackground'" });
@@ -51,6 +51,36 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/main", isAuthenticated, (req, res) => {
     // res.sendFile(path.join(__dirname, "../public/main.html"));
-    res.render("main");
+    const yelp = require("yelp-fusion");
+    const client = yelp.client(process.env.API_KEY);
+    let restaurants;
+    client
+      .search({
+        term: "vegan",
+        location: "new york, ny",
+      })
+      .then((response) => {
+        restaurants = response.jsonBody.businesses.map((business) => {
+          const obj = {
+            key: business.id,
+            name: business.name,
+            url: business.url,
+            rating: business.rating,
+            address: business.location.display_address,
+            phone: business.display_phone,
+            image: business.image_url,
+          };
+          return obj;
+        });
+        var hbsObject = {
+          restaurant: restaurants,
+        };
+        res.render("main", hbsObject);
+        console.log(restaurants);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    // res.render("main", restaurant);
   });
 };
