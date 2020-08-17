@@ -1,6 +1,6 @@
 $(document).ready(() => {
   // Button references
-  const backBtn = $("#back-btn");
+  const backBtn = $("#backBtn");
   const searchBtn = $("#search-btn");
   const saveBtn = $("#save-btn");
   const reviewBtn = $("#review-btn");
@@ -15,6 +15,9 @@ $(document).ready(() => {
   // Restaurant references
   const restaurantTitle = $("#restaurant-title");
   const restautantDescription = $("#restaurant-description");
+  backBtn.on("click", (e) => {
+    location.href ="/main";
+  });
 
   submitBtn.on("click", (e) => {
     let userId;
