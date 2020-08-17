@@ -2,9 +2,9 @@
 <div class="container-fluid">
     <a href="main"><button class="btn-outline-secondary btn rounded" style="margin-top:20px">Back
             Button</button></a>
-    <img src="https://image.shutterstock.com/image-vector/no-image-available-icon-ui-260nw-1458092489.jpg"
+    {{!-- <img src="https://image.shutterstock.com/image-vector/no-image-available-icon-ui-260nw-1458092489.jpg"
         alt="Logo Goes Here" class="logo-img "
-        style=" width: 100px; height: 100px; margin: auto; margin-bottom: 20px; display: block;" />
+        style=" width: 100px; height: 100px; margin: auto; margin-bottom: 20px; display: block;" /> --}}
 </div>
 
 <!-- Search Bar -->
@@ -22,19 +22,26 @@
         <img src="{{image_url}}" alt="Restaurant-Image" style="width: 500px; height:auto;" class="restaurant-img" />
         {{!-- </div> --}}
     </div>
-
+    <br>
     {{!-- Restaurant Info, Rating, and Review --> --}}
     <div class="row">
         <div class="col">
-            <h1 id="restaurant-title" class="restaurant-title">{{name}}</h1>
+            <a href="{{url}}"><h1 id="restaurant-title" class="restaurant-title" style="font-weight: bold;">{{name}}</h1></a> 
             <p>
-                {{location.display_address}}
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg> {{location.display_address}}
                 <br>
-                {{display_phone}}
                 <br>
-                {{url}}
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+                </svg> {{display_phone}}
                 <br>
-                {{rating}}
+                {{!-- {{url}} --}}
+                <br>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                </svg> {{rating}}
             </p>
         </div>
         {{!-- <div class="save-review-btns">
@@ -46,7 +53,10 @@
     <section class="user-review">
         <div class="row">
             <div class="col">
-                <h2>Reviews</h2>
+                <h2>Reviews <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
+                    <path fill-rule="evenodd" d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
+                </svg></h2>
                 <div class="card" style="margin-bottom: 20px; padding: 10px;">
                     <div class="col">
                         <textarea name="user-review" id="user-input" cols="46" rows="5">
@@ -63,12 +73,21 @@
             </div>
         </div>
     </section>
-    <h2>Other User's Review</h2>
+    <h2>Other User's Review 
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-layout-text-sidebar-reverse" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M2 1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm12-1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
+            <path fill-rule="evenodd" d="M5 15V1H4v14h1zm8-11.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z"/>
+        </svg>
+    </h2>
     {{#each review}}
     <section class="others-review">
         <div class="row">
             <div class="col">
-                <h4> User ID: {{post.UserId}}</h4>
+                <h4> 
+                    <svg width="1em" height="1em" viewBox="0 1.6 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    </svg> {{post.UserId}}
+                </h4>
             </div>
         </div>
         <div class="card" style="margin-bottom: 20px; padding: 10px;">
