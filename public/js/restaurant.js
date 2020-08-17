@@ -15,4 +15,17 @@ $(document).ready(() => {
   // Restaurant references
   const restaurantTitle = $("#restaurant-title");
   const restautantDescription = $("#restaurant-description");
+
+  submitBtn.on("click", (e) => {
+    console.log("clicked");
+    let newPost = {
+      restaurantId: submitBtn.attr("data"),
+      body: userInput.val().trim(),
+      userId: 1,
+    };
+    console.log(newPost);
+    $.post("/newReview", newPost, function() {
+      // window.location.href = "/blog";
+    });
+  });
 });
