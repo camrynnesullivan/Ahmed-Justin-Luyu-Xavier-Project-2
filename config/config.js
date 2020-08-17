@@ -15,11 +15,8 @@ module.exports = {
     dialect: "mysql",
   },
   production: {
-    username: "root",
-    password: null,
-    database: "database_production",
-    host: "127.0.0.1",
-    useEnvVariable: "JAWSDB_URL",
+    // eslint-disable-next-line
+    use_Env_Variable: "JAWSDB_URL",
     dialect: "mysql",
   },
 };
