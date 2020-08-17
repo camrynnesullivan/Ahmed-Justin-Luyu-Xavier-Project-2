@@ -3,23 +3,23 @@
     <a href="main"><button class="btn-outline-secondary btn rounded" style="margin-top:20px">Back
             Button</button></a>
     <img src="https://image.shutterstock.com/image-vector/no-image-available-icon-ui-260nw-1458092489.jpg"
-        alt="Logo Goes Here" class="logo-img" />
+        alt="Logo Goes Here" class="logo-img " style=" width: 100px; height: 100px; margin: auto; margin-bottom: 20px; display: block;" />
 </div>
 
 <!-- Search Bar -->
-<div class="container-fluid">
+{{!-- <div class="container-fluid">
     <div class="row justify-content-center">
         <input class="rounded" type="text" placeholder="Search Restaurants..." style="margin: 0px 10px" />
         <button id="search-btn" class="btn-outline-secondary btn rounded">Search</button>
     </div>
-</div>
+</div> --}}
 
 {{#each restaurant}}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <img src="{{image_url}}" alt="Restaurant-Image" class="restaurant-img" />
-        </div>
+<div class="container ">
+    <div class="row justify-content-center">
+        {{!-- <div class="col "> --}}
+            <img src="{{image_url}}" alt="Restaurant-Image" style="width: 500px; height:auto;" class="restaurant-img" />
+        {{!-- </div> --}}
     </div>
 
     {{!-- Restaurant Info, Rating, and Review --> --}}
