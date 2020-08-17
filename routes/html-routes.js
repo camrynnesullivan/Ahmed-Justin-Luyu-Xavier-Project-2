@@ -5,6 +5,7 @@ const path = require("path");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const { compareSync } = require("bcryptjs");
 const yelp = require("yelp-fusion");
+const db = require("../models");
 const client = yelp.client(process.env.API_KEY);
 module.exports = function(app) {
   app.get("/", (req, res) => {
@@ -43,6 +44,15 @@ module.exports = function(app) {
 
   app.get("/restaurant/:key", (req, res) => {
     if (req.user) {
+      let reviews;
+      db.Post.findAll({}).then(function(dbPost) {
+        reviews = dbPost.map((post) => {
+          const obj = {
+            post: post.dataValues,
+          };
+          return obj;
+        });
+      });
       let currentKey = req.params.key;
       console.log(req.user.email);
       let restaurants;
@@ -64,7 +74,8 @@ module.exports = function(app) {
           var hbsObject = {
             restaurant: restaurants,
           };
-          // console.log(hbsObject);
+          hbsObject.restaurant[0].review = reviews;
+          console.log(hbsObject.restaurant[0].review);
           res.render("restaurant", hbsObject);
         })
         .catch((e) => {
@@ -75,13 +86,6 @@ module.exports = function(app) {
       res.redirect("/login");
     }
   });
-
-  // app.post("/restaurant/:key", (req, res) => {
-  //   // if (req.user) {
-  //   //   res.render("restaurant");
-  //   // }
-  //   res.redirect("restaurant");
-  // });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
