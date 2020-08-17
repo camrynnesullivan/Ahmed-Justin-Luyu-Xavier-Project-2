@@ -3,7 +3,6 @@ const path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-const restaurant = require("../models/restaurant");
 const { compareSync } = require("bcryptjs");
 const yelp = require("yelp-fusion");
 const client = yelp.client(process.env.API_KEY);
@@ -45,7 +44,7 @@ module.exports = function(app) {
   app.get("/restaurant/:key", (req, res) => {
     if (req.user) {
       let currentKey = req.params.key;
-      console.log(currentKey);
+      console.log(req.user.email);
       let restaurants;
       client
         .search({
@@ -61,10 +60,6 @@ module.exports = function(app) {
                 };
               }
             }
-          );
-          console.log(
-            restaurants[0].location.display_address[0] +
-              restaurants[0].location.display_address[1]
           );
           var hbsObject = {
             restaurant: restaurants,

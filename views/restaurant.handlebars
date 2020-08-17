@@ -47,9 +47,6 @@
             <div class="col">
                 <h2>Reviews</h2>
                 <div class="card" style="margin-bottom: 20px; padding: 10px;">
-                    <div class="col user-name">
-                        <h4 id="user-name">{{Email}}</h4>
-                    </div>
                     <div class="col">
                         <textarea name="user-review" id="user-input" cols="46" rows="5">
 
@@ -57,7 +54,8 @@
                     </div>
 
                     <div>
-                        <button id="submit-btn" class="btn-outline-secondary btn rounded" style="float: right;">Submit
+                        <button id="submit-btn" class="btn-outline-secondary btn rounded" data="{{id}}"
+                            style="float: right;">Submit
                         </button>
                     </div>
                 </div>
@@ -85,3 +83,5 @@
 
 </div>
 {{/each}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/restaurant.js"></script>
