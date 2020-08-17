@@ -63,11 +63,12 @@
             </div>
         </div>
     </section>
-
+    <h2>Other User's Review</h2>
+    {{#each review}}
     <section class="others-review">
         <div class="row">
             <div class="col">
-                <h2>Other User's Review</h2>
+                <h4> User ID: {{post.UserId}}</h4>
             </div>
         </div>
         <div class="card" style="margin-bottom: 20px; padding: 10px;">
@@ -76,12 +77,12 @@
             </div>
             <div>
                 <p id="others-input">
-
+                    {{post.body}}
                 </p>
             </div>
         </div>
     </section>
-
+    {{/each}}
 </div>
 {{/each}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
