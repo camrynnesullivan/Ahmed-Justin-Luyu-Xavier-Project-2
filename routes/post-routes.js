@@ -13,10 +13,9 @@ module.exports = function(app) {
   // POST route for saving a new post
   app.post("/newReview", function(req, res) {
     db.Post.create({
-      title: req.body.title,
       body: req.body.body,
       UserId: req.body.userId,
-      RestaurantId: req.body.restaurantId,
+      restaurantId: req.body.restaurantId,
     }).then(function(dbPost) {
       console.log("something");
       res.json(dbPost);

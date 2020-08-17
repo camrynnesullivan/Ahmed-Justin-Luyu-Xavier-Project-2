@@ -3,8 +3,9 @@ const path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-const restaurant = require("../models/restaurant");
-
+const { compareSync } = require("bcryptjs");
+const yelp = require("yelp-fusion");
+const client = yelp.client(process.env.API_KEY);
 module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the main page
@@ -40,19 +41,52 @@ module.exports = function(app) {
     res.render("login", { background: "class='imgbackground'" });
   });
 
-  app.get("/restuarant", (req, res) => {
-    if(req.user){
-      res.render("restaurant")
+  app.get("/restaurant/:key", (req, res) => {
+    if (req.user) {
+      let currentKey = req.params.key;
+      console.log(req.user.email);
+      let restaurants;
+      client
+        .search({
+          term: "vegan",
+          location: "new york, ny",
+        })
+        .then((response) => {
+          const restaurants = response.jsonBody.businesses.filter(
+            (business) => {
+              if (business.id === currentKey) {
+                return {
+                  business,
+                };
+              }
+            }
+          );
+          var hbsObject = {
+            restaurant: restaurants,
+          };
+          // console.log(hbsObject);
+          res.render("restaurant", hbsObject);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } else {
+      console.log("redirecting to login");
+      res.redirect("/login");
     }
-    res.render("login");
   });
+
+  // app.post("/restaurant/:key", (req, res) => {
+  //   // if (req.user) {
+  //   //   res.render("restaurant");
+  //   // }
+  //   res.redirect("restaurant");
+  // });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/main", isAuthenticated, (req, res) => {
     // res.sendFile(path.join(__dirname, "../public/main.html"));
-    const yelp = require("yelp-fusion");
-    const client = yelp.client(process.env.API_KEY);
     let restaurants;
     client
       .search({
@@ -76,7 +110,6 @@ module.exports = function(app) {
           restaurant: restaurants,
         };
         res.render("main", hbsObject);
-        console.log(restaurants);
       })
       .catch((e) => {
         console.log(e);
