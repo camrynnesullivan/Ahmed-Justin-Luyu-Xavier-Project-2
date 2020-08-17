@@ -17,15 +17,20 @@ $(document).ready(() => {
   const restautantDescription = $("#restaurant-description");
 
   submitBtn.on("click", (e) => {
-    console.log("clicked");
-    let newPost = {
-      restaurantId: submitBtn.attr("data"),
-      body: userInput.val().trim(),
-      userId: 1,
-    };
-    console.log(newPost);
-    $.post("/newReview", newPost, function() {
-      // window.location.href = "/blog";
+    let userId;
+    $.get("/api/user_data", function(data) {
+      // console.log(data.id);
+      userId = data.id;
+    }).then(() => {
+      let newPost = {
+        restaurantId: submitBtn.attr("data"),
+        body: userInput.val().trim(),
+        userId: userId,
+      };
+      console.log(newPost);
+      $.post("/newReview", newPost, function() {
+        window.location.href = "/restaurant/" + submitBtn.attr("data");
+      });
     });
   });
 });
