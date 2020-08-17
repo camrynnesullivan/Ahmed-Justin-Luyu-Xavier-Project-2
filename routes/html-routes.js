@@ -45,7 +45,11 @@ module.exports = function(app) {
   app.get("/restaurant/:key", (req, res) => {
     if (req.user) {
       let reviews;
-      db.Post.findAll({}).then(function(dbPost) {
+      db.Post.findAll({
+        where: {
+          restaurantId: req.params.key,
+        },
+      }).then(function(dbPost) {
         reviews = dbPost.map((post) => {
           const obj = {
             post: post.dataValues,
